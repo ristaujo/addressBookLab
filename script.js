@@ -83,7 +83,36 @@ window.onload = function() {
       //Add to array
       let obj = new contactStructure(name.value,email.value,phone.value,relation.value);
       addressBook.push(obj);
+      localStorage['addBook'] = JSON.stringify(addressBook);
+      // Clear form
+      clearForm();
+      // Updating and displaying all records in address book
     }
-    console.log(isNull);
   }
+  function clearForm () {
+    let frm = document.querySelectorAll(".myinputs");
+    for (let i in frm) {
+      frm[i].value = ''; 
+    }
+  }
+  function showContacts (){
+    if(localStorage['addbook'] === undefined){
+      localStorage['addbook'] = "[]";
+    } else {
+      addressBook = JSON.parse(localStorage['addbook']);
+      //empty out added_contacts
+      added_contacts_section.innerHTML = '';
+      for (let i in addressBook) {
+        let str = '<section class="entry">';
+            str += '<div class="name"><p>' + addressBook[i].name + '</p></div>';
+            str += '<div class="email"><p>' + addressBook[i].email + '</p></div>';
+            str += '<div class="phone"><p>' + addressBook[i].phone + '</p></div>';
+            str += '<div class="relation"><p>' + addressBook[i].relation + '</p></div>';
+            str += '<div class="del"><a href="#" class="delbutton" data-id="' + i + '">Delete</a></div>';
+            str += '</div>';
+            added_contacts_section.innerHTML += str;
+      }
+    }
+  }
+  showContacts();
 }
