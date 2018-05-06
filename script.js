@@ -135,7 +135,6 @@ window.onload = function(){
 	// Storage Array
 	var addressBook = [];
 
-	//localStorage['addbook'] = '[{"name":"Sachin B","email":"sachin@frameboxx.in","phone":"93828292","address":"something","city":"Chandigarh"}]';
 
 	function jsonStructure(name,email,phone,relation){
 		this.name = name;
@@ -150,7 +149,7 @@ window.onload = function(){
 			// format the input into a valid JSON structure
 			var obj = new jsonStructure(name.value,email.value,phone.value,relation.value);
 			addressBook.push(obj);
-			localStorage['addbook'] = JSON.stringify(addressBook);
+			//localStorage['addbook'] = JSON.stringify(addressBook);
 			clearForm();
 			showAddressBook();
 		}
@@ -161,7 +160,7 @@ window.onload = function(){
 		if(e.target.classList.contains('delbutton')){
 			var remID = e.target.getAttribute('data-id');
 			addressBook.splice(remID,1);
-			localStorage['addbook'] = JSON.stringify(addressBook);
+			//localStorage['addbook'] = JSON.stringify(addressBook);
 			showAddressBook();
 		}
 	}
