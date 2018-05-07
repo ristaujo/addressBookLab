@@ -54,7 +54,7 @@ window.onload = function(){
 					newDiv += `<div class="name"><p> Name: ${addressBook[n].name} </p></div>`;
 					newDiv += `<div class="email"><p> Email: ${addressBook[n].email} </p></div>`;
 					newDiv += `<div class="phone"><p> Phone: ${addressBook[n].phone} </p></div>`;
-					newDiv += `<div class="address"><p> Relation: ${addressBook[n].relation} </p></div>`;
+					newDiv += `<div class="relation"><p> Relation: ${addressBook[n].relation} </p></div>`;
           newDiv += '<div class="del"><i class="fas fa-trash delbutton" data-id="' + n + '"></i></div>';
 					newDiv += '</section>';
 				addBookDiv.innerHTML += newDiv;
