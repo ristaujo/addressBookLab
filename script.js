@@ -25,7 +25,7 @@ window.onload = function(){
 		if(isNull){
 			let obj = new Structure(name.value,email.value,phone.value,relation.value);
 			addressBook.push(obj);
-			addbook = JSON.stringify(addressBook);
+			addbook = addressBook;
 			clearForm();
 			showAddressBook();
 		}
@@ -35,7 +35,7 @@ window.onload = function(){
 		if(e.target.classList.contains('delbutton')){
 			let remID = e.target.getAttribute('data-id');
 			addressBook.splice(remID,1);
-			addbook = JSON.stringify(addressBook);
+			addbook = addressBook;
 			showAddressBook();
 		}
 	}
@@ -48,10 +48,6 @@ window.onload = function(){
 	}
 
 	function showAddressBook(){
-		if(addbook === undefined){
-			addbook = '';
-		} else {
-			addressBook = JSON.parse(addbook);
 			addBookDiv.innerHTML = '';
 			for(let n in addressBook){
 				let newDiv = '<section class="entry">';
@@ -63,7 +59,6 @@ window.onload = function(){
 					newDiv += '</section>';
 				addBookDiv.innerHTML += newDiv;
 			}
-		}
 	}
 
 	showAddressBook();
