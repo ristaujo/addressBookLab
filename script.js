@@ -149,7 +149,7 @@ window.onload = function(){
 			// format the input into a valid JSON structure
 			var obj = new jsonStructure(name.value,email.value,phone.value,relation.value);
 			addressBook.push(obj);
-			//localStorage['addbook'] = JSON.stringify(addressBook);
+			localStorage['addbook'] = JSON.stringify(addressBook);
 			clearForm();
 			showAddressBook();
 		}
@@ -160,7 +160,7 @@ window.onload = function(){
 		if(e.target.classList.contains('delbutton')){
 			var remID = e.target.getAttribute('data-id');
 			addressBook.splice(remID,1);
-			//localStorage['addbook'] = JSON.stringify(addressBook);
+			localStorage['addbook'] = JSON.stringify(addressBook);
 			showAddressBook();
 		}
 	}
@@ -184,9 +184,10 @@ window.onload = function(){
 					str += '<div class="name"><p>' + addressBook[n].name + '</p></div>';
 					str += '<div class="email"><p>' + addressBook[n].email + '</p></div>';
 					str += '<div class="phone"><p>' + addressBook[n].phone + '</p></div>';
-					str += '<div class="address"><p>' + addressBook[n].address + '</p></div>';
-					str += '<div class="city"><p>' + addressBook[n].city + '</p></div>';
-					str += '<div class="del"><a href="#" class="delbutton" data-id="' + n + '">Delete</a></div>';
+					str += '<div class="address"><p>' + addressBook[n].relation + '</p></div>';
+          //str += '<div class="del"><a href="#" class="delbutton" data-id="' + n + '"><i class="material-icons trash">Delete</i></a></div>';
+          str += '<div class="del"><i class="material-icons trash delbutton">Delete</i></div>';
+
 					str += '</section>';
 				addBookDiv.innerHTML += str;
 			}
