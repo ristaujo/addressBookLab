@@ -8,12 +8,12 @@ window.onload = function(){
 
 	AddBtn.addEventListener("click", addToBook);
 
-	addBookDiv.addEventListener("click", removeEntry);
+	addBookDiv.addEventListener("click", deleteAt);
 
 	let addressBook = [];
 
 
-	function jsonStructure(name,email,phone,relation){
+	function Structure(name,email,phone,relation){
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
@@ -23,7 +23,7 @@ window.onload = function(){
 	function addToBook(){
 		let isNull = name.value!='' && email.value!='' && phone.value!='' && relation.value!='';
 		if(isNull){
-			let obj = new jsonStructure(name.value,email.value,phone.value,relation.value);
+			let obj = new Structure(name.value,email.value,phone.value,relation.value);
 			addressBook.push(obj);
 			addbook = JSON.stringify(addressBook);
 			clearForm();
@@ -31,7 +31,7 @@ window.onload = function(){
 		}
 	}
 
-	function removeEntry(e){
+	function deleteAt(e){
 		if(e.target.classList.contains('delbutton')){
 			let remID = e.target.getAttribute('data-id');
 			addressBook.splice(remID,1);
