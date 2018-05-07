@@ -65,7 +65,7 @@ h3 {
   position: relative;
 }
 
-.trash {
+.fa-trash {
   position: absolute;
   bottom:0;
   right:0;
@@ -74,4 +74,11 @@ h3 {
 
 p {
   font-size: 8px;
+}
+
+.addbook {
+  display: flex;
+  flex-directiion: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
